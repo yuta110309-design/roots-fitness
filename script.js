@@ -1189,6 +1189,59 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* スペシャルサポーター申し込みモーダル                                    */
+  /* [data-open-supporter-modal] クリックでモーダルを開く                  */
+  /* ------------------------------------------------------------------ */
+  var supporterModal = document.getElementById("supporter-modal");
+
+  if (supporterModal) {
+    var openSupporterModal = function (triggerEl) {
+      openModal(supporterModal, triggerEl);
+      supporterModal.setAttribute("aria-hidden", "false");
+    };
+
+    var closeSupporterModal = function () {
+      closeModal(supporterModal);
+      supporterModal.setAttribute("aria-hidden", "true");
+      var lastFocused = modalLastFocused.get(supporterModal);
+      if (lastFocused) lastFocused.focus();
+    };
+
+    document.querySelectorAll("[data-open-supporter-modal]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        openSupporterModal(el);
+      });
+    });
+
+    supporterModal.querySelectorAll("[data-close-supporter-modal]").forEach(function (el) {
+      el.addEventListener("click", closeSupporterModal);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && supporterModal.classList.contains("is-open")) {
+        closeSupporterModal();
+      }
+    });
+
+    var supporterForm = document.getElementById("supporter-form");
+    if (supporterForm) {
+      supporterForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (!supporterForm.reportValidity()) {
+          return;
+        }
+
+        // フォーム送信時は Notion に飛ばす（別途設定）
+        // 一旦、成功画面を表示
+        supporterModal.querySelector("[data-supporter-step='form']").hidden = true;
+        supporterModal.querySelector("[data-supporter-step='success']").hidden = false;
+      });
+    }
+  }
+
+  /* ------------------------------------------------------------------ */
   /* スクロールリビール(自然体を感じさせる、静かなフェード+浮き上がり)。      */
   /* 各セクションのcontainerが画面に入ったタイミングで、ふわっと現れる。      */
   /* prefers-reduced-motionの場合は何もしない(最初から表示されたまま)。     */
