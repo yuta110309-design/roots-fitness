@@ -259,18 +259,25 @@
 }
 
 .pricing-card {
-  background: white;
+  background: linear-gradient(135deg, #2d5037 0%, #3a6b47 100%);
   padding: 40px 30px;
-  border-radius: 8px;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
 }
 
 .pricing-card h3 {
   font-size: 1.3rem;
-  color: #2E3D28;
+  color: white;
   margin-bottom: 20px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .pricing-features {
@@ -286,7 +293,7 @@
   margin: 12px 0;
   padding-left: 25px;
   position: relative;
-  color: #555;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.95rem;
 }
 
@@ -294,20 +301,20 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #2E3D28;
+  color: #FFD700;
   font-weight: bold;
 }
 
 .pricing-price {
   font-size: 2.5rem;
-  color: #E74C3C;
+  color: #FFD700;
   margin: 20px 0;
   font-weight: 700;
 }
 
 .pricing-unit {
   font-size: 0.95rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .entry-fee {
@@ -620,7 +627,6 @@
           <li>ライブトレーニング配信</li>
           <li>栄養・食事ガイド</li>
           <li>メンバーコミュニティ</li>
-          <li>過去ライブの動画閲覧</li>
         </ul>
       </div>
 
@@ -631,7 +637,6 @@
           <li>動画視聴プランの全て</li>
           <li>トレーナー1対1サポート</li>
           <li>個別フィードバック</li>
-          <li>優先的なアドバイス</li>
         </ul>
       </div>
     </div>
