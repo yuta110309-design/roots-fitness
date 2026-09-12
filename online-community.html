@@ -485,7 +485,7 @@
     <span class="section-eyebrow" style="color: rgba(255,255,255,0.8); font-size: 0.85rem; letter-spacing: 0.15em; display: inline-block; margin-bottom: 25px;">Online Community</span>
     <h1 style="margin: 0 auto 30px; line-height: 1.3; white-space: normal; word-break: keep-all; text-align: center; max-width: 100%;">自分らしく、毎日を整える。</h1>
     <p style="font-size: 1.05rem; line-height: 1.85; margin-bottom: 50px; opacity: 0.95;">朝20〜30分、自宅からプロのトレーニング。</p>
-    <a href="https://roots-fitness.fit-karte.com/mypage?s=roots-fitness-community&openExternalBrowser=1" class="btn btn-primary" style="background: white; color: #2E3D28; display: inline-block; text-decoration: none; padding: 16px 48px; font-weight: 600; cursor: pointer; border-radius: 8px;">今すぐ参加する</a>
+    <button type="button" class="btn btn-primary" data-open-online-community-modal style="background: white; color: #2E3D28; display: inline-block; text-decoration: none; padding: 16px 48px; font-weight: 600; cursor: pointer; border-radius: 8px; border: none;">今すぐ参加する</button>
   </div>
 </section>
 
@@ -740,6 +740,43 @@
     <p class="copyright">&copy; 2024 Roots Fitness. All rights reserved.</p>
   </div>
 </footer>
+
+<!-- Online Community Modal -->
+<div class="reservation-modal" id="online-community-modal" aria-hidden="true">
+  <div class="reservation-modal-backdrop" data-close-online-community-modal></div>
+  <div class="reservation-modal-panel" role="dialog" aria-modal="true" aria-labelledby="online-community-modal-title">
+    <button type="button" class="reservation-modal-close" data-close-online-community-modal aria-label="閉じる">×</button>
+    <h2 id="online-community-modal-title" class="section-title">オンラインコミュニティ参加申し込み</h2>
+    <p class="reservation-modal-lead">下記フォームにご記入ください。ご入力いただいたメールアドレス宛に、参加方法の詳細をお送りします。</p>
+
+    <form id="online-community-form" class="reservation-form">
+      <div data-online-community-step="form">
+        <div class="form-group">
+          <label for="online-community-name">お名前 <span class="form-required">*</span></label>
+          <input type="text" id="online-community-name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="online-community-email">メールアドレス <span class="form-required">*</span></label>
+          <input type="email" id="online-community-email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="online-community-phone">電話番号</label>
+          <input type="tel" id="online-community-phone" name="phone">
+        </div>
+
+        <p class="reservation-form-note">送信後、ご登録いただいたメールアドレス宛に、オンラインコミュニティ参加方法の詳細をお送りします。</p>
+        <p class="reservation-form-error"></p>
+        <button type="submit" class="btn btn-primary reservation-submit">申し込む</button>
+      </div>
+
+      <div data-online-community-step="success" hidden>
+        <p>ご申し込みありがとうございます。詳細情報をご登録のメールアドレス宛にお送りします。</p>
+      </div>
+    </form>
+  </div>
+</div>
 
 <script src="script.js?v=5"></script>
 </body>

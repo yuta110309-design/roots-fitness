@@ -359,6 +359,52 @@
   /* data/supporter-form.json が未設定(REPLACE_ME_)の間は、実際の送信は     */
   /* 行われずコンソールに警告が出るのみ(UIの見た目・動作は確認できる)。       */
   /* ------------------------------------------------------------------ */
+  /* Open online community modal from online-community.html [data-open-online-community-modal] button */
+  var onlineCommunityModal = document.getElementById("online-community-modal");
+  if (onlineCommunityModal) {
+    var onlineCommunityForm = document.getElementById("online-community-form");
+    var onlineCommunityFormStep = onlineCommunityModal.querySelector('[data-online-community-step="form"]');
+    var onlineCommunitySuccessStep = onlineCommunityModal.querySelector('[data-online-community-step="success"]');
+    var onlineCommunityErrorEl = onlineCommunityModal.querySelector(".reservation-form-error");
+
+    document.querySelectorAll("[data-open-online-community-modal]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (onlineCommunityFormStep) onlineCommunityFormStep.hidden = false;
+        if (onlineCommunitySuccessStep) onlineCommunitySuccessStep.hidden = true;
+        if (onlineCommunityErrorEl) onlineCommunityErrorEl.textContent = "";
+        if (onlineCommunityForm) onlineCommunityForm.reset();
+        openModal(onlineCommunityModal, el);
+      });
+    });
+
+    onlineCommunityModal.querySelectorAll("[data-close-online-community-modal]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        closeModal(onlineCommunityModal);
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && onlineCommunityModal.classList.contains("is-open")) {
+        closeModal(onlineCommunityModal);
+      }
+    });
+
+    if (onlineCommunityForm) {
+      onlineCommunityForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (onlineCommunityErrorEl) onlineCommunityErrorEl.textContent = "";
+        if (!onlineCommunityForm.reportValidity()) return;
+
+        if (onlineCommunityFormStep) onlineCommunityFormStep.hidden = true;
+        if (onlineCommunitySuccessStep) onlineCommunitySuccessStep.hidden = false;
+        onlineCommunityForm.reset();
+
+        console.log("Online Community application submitted (email integration pending)");
+      });
+    }
+  }
+
   /* Open supporter modal from index.html [data-open-supporter-modal] button */
   var supporterModal = document.getElementById("supporter-modal");
   if (supporterModal) {
