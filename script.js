@@ -359,6 +359,29 @@
   /* data/supporter-form.json が未設定(REPLACE_ME_)の間は、実際の送信は     */
   /* 行われずコンソールに警告が出るのみ(UIの見た目・動作は確認できる)。       */
   /* ------------------------------------------------------------------ */
+  /* Open supporter modal from index.html [data-open-supporter-modal] button */
+  var supporterModal = document.getElementById("supporter-modal");
+  if (supporterModal) {
+    document.querySelectorAll("[data-open-supporter-modal]").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        e.preventDefault();
+        openModal(supporterModal, el);
+      });
+    });
+
+    supporterModal.querySelectorAll("[data-close-supporter-modal]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        closeModal(supporterModal);
+      });
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && supporterModal.classList.contains("is-open")) {
+        closeModal(supporterModal);
+      }
+    });
+  }
+
   var supporterForm = document.getElementById("supporter-form");
 
   if (supporterForm) {
