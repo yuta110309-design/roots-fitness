@@ -528,24 +528,46 @@
 <!-- Trainers Section -->
 <section class="section trainers-section">
   <div class="container">
-    <h2 class="section-title" style="margin-bottom: 40px;">トレーナー紹介</h2>
+    <h2 class="section-title" style="margin-bottom: 50px;">トレーナー紹介</h2>
 
-    <div class="trainer-item">
-      <div class="trainer-photo">梅澤亮太<br>トレーナー</div>
-      <div class="trainer-info">
-        <h3>梅澤亮太</h3>
-        <p class="trainer-role">パーソナルトレーナー（軽井沢店）</p>
-        <p class="trainer-bio">大原学園スポーツビジネスコース卒業。ミスターモデルジャパン長野県大会4位。体や健康に関する悩みはお一人おひとり違います。それぞれの目標に寄り添い、ただ体を変えるだけではなく、体を動かすことで得られる楽しさや日々の生活がより充実していく喜びもお伝えできるよう、全力でサポートさせていただきます。</p>
+    <div class="trainer-carousel-wrapper">
+      <div class="trainer-carousel" id="trainersCarousel">
+        <!-- Trainer 1: Kawasaki -->
+        <div class="trainer-carousel-item">
+          <div class="trainer-card">
+            <div class="trainer-photo-placeholder">川崎<br>トレーナー</div>
+            <h3 style="margin: 20px 0 5px; font-size: 1.1rem;">川崎</h3>
+            <p style="margin: 0 0 15px; font-size: 0.9rem; color: #666; line-height: 1.5;">パーソナルトレーナー（代官山店）</p>
+            <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: #555;">柔道実業団出身。CFSC認定ファンクショナル・ストレングスコーチ。お客様一人ひとりの身体や生活に寄り添い、無理なく続けられるサポートを大切にしています。</p>
+          </div>
+        </div>
+
+        <!-- Trainer 2: Isobe -->
+        <div class="trainer-carousel-item">
+          <div class="trainer-card">
+            <div class="trainer-photo-placeholder">磯部隼<br>トレーナー</div>
+            <h3 style="margin: 20px 0 5px; font-size: 1.1rem;">磯部隼</h3>
+            <p style="margin: 0 0 15px; font-size: 0.9rem; color: #666; line-height: 1.5;">パーソナルトレーナー（代官山店）</p>
+            <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: #555;">フィットネス企業の東京都北部エリアマネージャーを歴任。まずは自分の身体を知ることから。機能改善や正しい動きを身につけるトレーニングをお伝えします。</p>
+          </div>
+        </div>
+
+        <!-- Trainer 3: Umezawa -->
+        <div class="trainer-carousel-item">
+          <div class="trainer-card">
+            <div class="trainer-photo-placeholder">梅澤亮太<br>トレーナー</div>
+            <h3 style="margin: 20px 0 5px; font-size: 1.1rem;">梅澤亮太</h3>
+            <p style="margin: 0 0 15px; font-size: 0.9rem; color: #666; line-height: 1.5;">パーソナルトレーナー（軽井沢店）</p>
+            <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: #555;">大原学園スポーツビジネスコース卒業。ミスターモデルジャパン長野県大会4位。それぞれの目標に寄り添い、体を動かすことで得られる楽しさや日々の生活がより充実していく喜びをお伝えします。</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="trainer-item">
-      <div class="trainer-photo">戸澤恭子<br>トレーナー</div>
-      <div class="trainer-info">
-        <h3>戸澤恭子</h3>
-        <p class="trainer-role">アロマトレーナー / ストレッチトレーナー（軽井沢店）</p>
-        <p class="trainer-bio">アスリートアロマトレーナー、パーソナルストレッチトレーナー。目的地（思い描く姿）にたどり着くためのナビゲーターとして、お客様との対話を特に大切にしています。一人ひとりの身体の状態に合わせ、アロマトリートメントやストレッチを取り入れながら、身体を整えていきます。</p>
-      </div>
+    <div class="trainer-carousel-dots" id="trainersCarouselDots">
+      <button type="button" class="trainer-carousel-dot is-active" data-slider-dot></button>
+      <button type="button" class="trainer-carousel-dot" data-slider-dot></button>
+      <button type="button" class="trainer-carousel-dot" data-slider-dot></button>
     </div>
   </div>
 </section>

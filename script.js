@@ -1362,6 +1362,16 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* Trainer Carousel (トレーナー紹介)                                  */
+  /* ------------------------------------------------------------------ */
+  var trainersCarousel = document.getElementById("trainersCarousel");
+  var trainersDots = document.getElementById("trainersCarouselDots");
+
+  if (trainersCarousel && trainersDots) {
+    setupCardSlider(trainersCarousel, null, null, trainersDots);
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Services Carousel (3つのサービス)                                  */
   /* ------------------------------------------------------------------ */
   window.scrollToCarouselItem = function (index) {
