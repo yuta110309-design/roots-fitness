@@ -3145,3 +3145,35 @@ a.news-card:hover {
     display: none;
   }
 }
+
+/* Hero Background Video */
+.online-community-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.online-community-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-video {
+    display: none;
+  }
+  
+  .online-community-hero {
+    background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%);
+  }
+}
