@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=39">
+<link rel="stylesheet" href="style.css?v=40">
 <style>
 .online-community-hero {
   color: white;
@@ -864,9 +864,9 @@
 <div id="reservationModal" class="modal" style="display: none;">
   <div class="modal-content">
     <button class="modal-close" onclick="closeReservationModal()">&times;</button>
-    <h2 class="modal-title">RESERVATION</h2>
-    <h3 class="modal-subtitle">体験予約はこちら</h3>
-    <p class="modal-description">下記フォームにご記入ください。ご入力いただいたメールアドレス宛に、選択した店舗のご案内をお送りします。</p>
+    <h2 class="modal-title">MEMBERSHIP</h2>
+    <h3 class="modal-subtitle">入会はこちら</h3>
+    <p class="modal-description">下記フォームにご記入ください。ご入力いただいたメールアドレス宛に、入会に関する詳細情報をお送りします。</p>
 
     <form class="reservation-form" onsubmit="handleReservationSubmit(event)">
       <div class="form-group">
@@ -920,7 +920,7 @@ function closeReservationModal() {
 
 function handleReservationSubmit(event) {
   event.preventDefault();
-  alert('ご予約ありがとうございます。\nご入力いただいたメールアドレスに案内を送信いたします。');
+  alert('ご入会ありがとうございます。\nご入力いただいたメールアドレスに入会詳細を送信いたします。');
   closeReservationModal();
   document.querySelector('.reservation-form').reset();
 }
