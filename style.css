@@ -3096,6 +3096,11 @@ a.news-card:hover {
   }
 
   .section-title {
-    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    letter-spacing: -0.02em;
+  }
+
+  .section {
+    margin-top: 0 !important;
   }
 }
