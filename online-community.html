@@ -12,13 +12,40 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=15">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css?v=31">
 <style>
 .online-community-hero {
-  background: linear-gradient(135deg, #2E3D28 0%, #1a2318 100%);
   color: white;
   padding: 80px 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .online-community-hero {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .online-community-hero .container {
+    padding: 30px 20px;
+  }
+
+  .online-community-hero h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .online-community-hero p {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
 }
 
 .online-community-hero h1 {
@@ -33,124 +60,62 @@
   opacity: 0.95;
 }
 
-.services-carousel {
+.online-community-hero .container {
   position: relative;
-  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
   margin: 60px 0;
 }
 
-.carousel-container {
-  display: flex;
-  gap: 25px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 20px 0;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel-container::-webkit-scrollbar {
-  height: 6px;
-}
-
-.carousel-container::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
-}
-
-.carousel-container::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.3);
-  border-radius: 3px;
-}
-
-.carousel-item {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  padding: 0;
-  display: none;
-}
-
-.carousel-item.active {
-  display: block;
-}
-
-@media (min-width: 768px) {
-  .carousel-item {
-    flex: 0 0 calc(50% - 13px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .carousel-item {
-    flex: 0 0 calc(33.333% - 17px);
-  }
-}
-
-.service-card {
-  padding: 45px 35px;
-  border-radius: 16px;
+.feature-card {
+  padding: 50px 40px;
+  border-radius: 20px;
   color: white;
   text-align: center;
-  min-height: 320px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  align-items: center;
+  background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%);
+  box-shadow: 0 6px 16px rgba(46, 61, 40, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(46, 61, 40, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-.service-card h3 {
+.feature-card h3 {
   font-size: 1.4rem;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
 
-.service-card p {
-  font-size: 1rem;
+.feature-card p {
+  font-size: 0.95rem;
   line-height: 1.85;
   opacity: 0.95;
+  letter-spacing: 0.2px;
 }
 
-.service-card.service-1 {
-  background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%);
-}
-
-.service-card.service-2 {
-  background: linear-gradient(135deg, #4a7c54 0%, #3a6c44 100%);
-}
-
-.service-card.service-3 {
-  background: linear-gradient(135deg, #588c65 0%, #468a5d 100%);
-}
-
-.carousel-nav {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 35px;
-}
-
-.carousel-nav button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(46,61,40,0.2);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.carousel-nav button.active {
-  background: #2E3D28;
-  width: 32px;
-  border-radius: 6px;
-}
+.feature-card.blue { background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%); }
+.feature-card.green { background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%); }
+.feature-card.orange { background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%); }
+.feature-card.red { background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%); }
+.feature-card.pink { background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%); }
 
 .trainers-section {
   background: #f5f5f5;
@@ -259,18 +224,18 @@
 }
 
 .pricing-card {
-  background: linear-gradient(135deg, #2d5037 0%, #3a6b47 100%);
-  padding: 40px 30px;
-  border-radius: 16px;
+  background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%);
+  padding: 45px 35px;
+  border-radius: 8px;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(46, 61, 40, 0.15);
   color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(46, 61, 40, 0.25);
 }
 
 .pricing-card h3 {
@@ -278,14 +243,15 @@
   color: white;
   margin-bottom: 20px;
   font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .pricing-features {
   text-align: left;
   margin: 20px 0;
   padding: 20px 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .pricing-features li {
@@ -318,12 +284,13 @@
 }
 
 .entry-fee {
-  background: #fff3cd;
+  background: rgba(46, 61, 40, 0.08);
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 8px;
   font-size: 0.95rem;
-  color: #856404;
+  color: #2E3D28;
+  border-left: 4px solid #2E3D28;
 }
 
 .entry-fee-note {
@@ -486,44 +453,37 @@
   </video>
   <div class="container">
     <span class="section-eyebrow" style="color: rgba(255,255,255,0.8); font-size: 0.85rem; letter-spacing: 0.15em; display: inline-block; margin-bottom: 25px;">Online Community</span>
-    <h1 style="display: block; margin: 0 auto 30px; line-height: 1.3; white-space: normal; word-break: keep-all; text-align: center; width: 100%; padding: 0 20px; box-sizing: border-box;">自分らしく、毎日を整える。</h1>
-    <p style="font-size: 1.05rem; line-height: 1.85; margin-bottom: 50px; opacity: 0.95; text-align: center;">朝20〜30分、自宅からプロのトレーニング。</p>
-    <button type="button" class="btn btn-primary" data-open-online-community-modal style="background: white; color: #2E3D28; display: inline-block; text-decoration: none; padding: 16px 48px; font-weight: 600; cursor: pointer; border-radius: 8px; border: none;">今すぐ参加する</button>
+    <h1 style="margin-top: 0; margin-bottom: 30px; line-height: 1.3;">自宅でも、本質的な健康を。</h1>
+    <p style="font-size: 1.05rem; line-height: 1.85; margin-bottom: 50px; opacity: 0.95;">ライブトレーニング、栄養ガイド、トレーナーサポート。<br class="mobile-break">Roots Fitness のオンラインコミュニティで、毎日の健康をサポート。</p>
+    <a href="https://roots-fitness.fit-karte.com/mypage?s=roots-fitness-community&openExternalBrowser=1" class="btn btn-primary" style="background: white; color: #2E3D28; display: inline-block; text-decoration: none; padding: 16px 48px; font-weight: 600;">今すぐ参加する</a>
   </div>
 </section>
 
-<!-- Services Section -->
-<section class="section" style="background: linear-gradient(135deg, rgba(46,61,40,0.03) 0%, rgba(46,61,40,0.06) 100%);">
+<!-- Features Section -->
+<section class="section">
   <div class="container">
-    <h2 class="section-title" style="margin-bottom: 50px; font-size: 1.8rem; text-align: center;">3つのサービスで、本質的な健康を</h2>
-
-    <div class="services-carousel">
-      <div class="carousel-container" id="servicesCarousel">
-        <div class="carousel-item active">
-          <div class="service-card service-1">
-            <h3>ライブトレーニング配信</h3>
-            <p>トレーナーとリアルタイムで繋がる。自宅にいながら、プロのトレーニングを受けられます。</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="service-card service-2">
-            <h3>栄養・食事ガイド</h3>
-            <p>トレーニングと同じくらい大切な栄養管理。コラム形式でわかりやすく解説します。</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="service-card service-3">
-            <h3>メンバーコミュニティ</h3>
-            <p>同じ目標を持つメンバーとの交流。一緒に頑張る仲間が見つかります。</p>
-          </div>
-        </div>
+    <h2 class="section-title" style="margin-bottom: 40px;">5つの機能で、理想の身体へ</h2>
+    <div class="features-grid">
+      <div class="feature-card blue">
+        <h3><i class="fas fa-video"></i> ライブトレーニング配信</h3>
+        <p>トレーナーとリアルタイムで繋がる。自宅にいながら、プロのトレーニングを受けられます。</p>
       </div>
-    </div>
-
-    <div class="carousel-nav" id="carouselNav">
-      <button class="active" onclick="scrollToCarouselItem(0)"></button>
-      <button onclick="scrollToCarouselItem(1)"></button>
-      <button onclick="scrollToCarouselItem(2)"></button>
+      <div class="feature-card green">
+        <h3><i class="fas fa-book"></i> 栄養・食事ガイド</h3>
+        <p>トレーニングと同じくらい大切な栄養管理。コラム形式でわかりやすく解説します。</p>
+      </div>
+      <div class="feature-card orange">
+        <h3><i class="fas fa-users"></i> メンバーコミュニティ</h3>
+        <p>同じ目標を持つメンバーとの交流。一緒に頑張る仲間が見つかります。</p>
+      </div>
+      <div class="feature-card red">
+        <h3><i class="fas fa-chalkboard-user"></i> トレーナー1対1サポート</h3>
+        <p>個別の悩みや質問に対応。あなたのレベルや目標に合わせたアドバイスを受けられます。</p>
+      </div>
+      <div class="feature-card pink">
+        <h3><i class="fas fa-robot"></i> AIコーチ機能（準備中）</h3>
+        <p>24時間サポート。今後さらに便利になる予定です。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -531,46 +491,24 @@
 <!-- Trainers Section -->
 <section class="section trainers-section">
   <div class="container">
-    <h2 class="section-title" style="margin-bottom: 50px;">トレーナー紹介</h2>
+    <h2 class="section-title" style="margin-bottom: 40px;">トレーナー紹介</h2>
 
-    <div class="trainer-carousel-wrapper">
-      <div class="trainer-carousel" id="trainersCarousel">
-        <!-- Trainer 1: Kawasaki -->
-        <div class="trainer-carousel-item">
-          <div class="trainer-card">
-            <div class="trainer-photo-placeholder">川崎<br>トレーナー</div>
-            <h3 style="margin: 20px 0 5px; font-size: 1.1rem;">川崎</h3>
-            <p style="margin: 0 0 15px; font-size: 0.9rem; color: #666; line-height: 1.5;">パーソナルトレーナー（代官山店）</p>
-            <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: #555;">柔道実業団出身。CFSC認定ファンクショナル・ストレングスコーチ。お客様一人ひとりの身体や生活に寄り添い、無理なく続けられるサポートを大切にしています。</p>
-          </div>
-        </div>
-
-        <!-- Trainer 2: Isobe -->
-        <div class="trainer-carousel-item">
-          <div class="trainer-card">
-            <div class="trainer-photo-placeholder">磯部隼<br>トレーナー</div>
-            <h3 style="margin: 20px 0 5px; font-size: 1.1rem;">磯部隼</h3>
-            <p style="margin: 0 0 15px; font-size: 0.9rem; color: #666; line-height: 1.5;">パーソナルトレーナー（代官山店）</p>
-            <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: #555;">フィットネス企業の東京都北部エリアマネージャーを歴任。まずは自分の身体を知ることから。機能改善や正しい動きを身につけるトレーニングをお伝えします。</p>
-          </div>
-        </div>
-
-        <!-- Trainer 3: Umezawa -->
-        <div class="trainer-carousel-item">
-          <div class="trainer-card">
-            <div class="trainer-photo-placeholder">梅澤亮太<br>トレーナー</div>
-            <h3 style="margin: 20px 0 5px; font-size: 1.1rem;">梅澤亮太</h3>
-            <p style="margin: 0 0 15px; font-size: 0.9rem; color: #666; line-height: 1.5;">パーソナルトレーナー（軽井沢店）</p>
-            <p style="margin: 0; font-size: 0.95rem; line-height: 1.7; color: #555;">大原学園スポーツビジネスコース卒業。ミスターモデルジャパン長野県大会4位。それぞれの目標に寄り添い、体を動かすことで得られる楽しさや日々の生活がより充実していく喜びをお伝えします。</p>
-          </div>
-        </div>
+    <div class="trainer-item">
+      <div class="trainer-photo">梅澤亮太<br>トレーナー</div>
+      <div class="trainer-info">
+        <h3>梅澤亮太</h3>
+        <p class="trainer-role">パーソナルトレーナー（軽井沢店）</p>
+        <p class="trainer-bio">大原学園スポーツビジネスコース卒業。ミスターモデルジャパン長野県大会4位。体や健康に関する悩みはお一人おひとり違います。それぞれの目標に寄り添い、ただ体を変えるだけではなく、体を動かすことで得られる楽しさや日々の生活がより充実していく喜びもお伝えできるよう、全力でサポートさせていただきます。</p>
       </div>
     </div>
 
-    <div class="trainer-carousel-dots" id="trainersCarouselDots">
-      <button type="button" class="trainer-carousel-dot is-active" data-slider-dot></button>
-      <button type="button" class="trainer-carousel-dot" data-slider-dot></button>
-      <button type="button" class="trainer-carousel-dot" data-slider-dot></button>
+    <div class="trainer-item">
+      <div class="trainer-photo">戸澤恭子<br>トレーナー</div>
+      <div class="trainer-info">
+        <h3>戸澤恭子</h3>
+        <p class="trainer-role">アロマトレーナー / ストレッチトレーナー（軽井沢店）</p>
+        <p class="trainer-bio">アスリートアロマトレーナー、パーソナルストレッチトレーナー。目的地（思い描く姿）にたどり着くためのナビゲーターとして、お客様との対話を特に大切にしています。一人ひとりの身体の状態に合わせ、アロマトリートメントやストレッチを取り入れながら、身体を整えていきます。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -646,22 +584,24 @@
 
     <div class="pricing-grid">
       <div class="pricing-card">
-        <h3>ベーシック</h3>
+        <h3>🎥 動画視聴プラン</h3>
         <div class="pricing-price">3,980<span class="pricing-unit">円/月（税抜）</span></div>
         <ul class="pricing-features">
           <li>ライブトレーニング配信</li>
           <li>栄養・食事ガイド</li>
           <li>メンバーコミュニティ</li>
+          <li>過去ライブの動画閲覧</li>
         </ul>
       </div>
 
       <div class="pricing-card">
-        <h3>プレミア</h3>
+        <h3>👨‍🏫 サポートプラン</h3>
         <div class="pricing-price">5,980<span class="pricing-unit">円/月（税抜）</span></div>
         <ul class="pricing-features">
           <li>動画視聴プランの全て</li>
           <li>トレーナー1対1サポート</li>
           <li>個別フィードバック</li>
+          <li>優先的なアドバイス</li>
         </ul>
       </div>
     </div>
@@ -766,43 +706,6 @@
   </div>
 </footer>
 
-<!-- Online Community Modal -->
-<div class="reservation-modal" id="online-community-modal" aria-hidden="true">
-  <div class="reservation-modal-backdrop" data-close-online-community-modal></div>
-  <div class="reservation-modal-panel" role="dialog" aria-modal="true" aria-labelledby="online-community-modal-title">
-    <button type="button" class="reservation-modal-close" data-close-online-community-modal aria-label="閉じる">×</button>
-    <h2 id="online-community-modal-title" class="section-title">オンラインコミュニティ参加申し込み</h2>
-    <p class="reservation-modal-lead">下記フォームにご記入ください。ご入力いただいたメールアドレス宛に、参加方法の詳細をお送りします。</p>
-
-    <form id="online-community-form" class="reservation-form">
-      <div data-online-community-step="form">
-        <div class="form-group">
-          <label for="online-community-name">お名前 <span class="form-required">*</span></label>
-          <input type="text" id="online-community-name" name="name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="online-community-email">メールアドレス <span class="form-required">*</span></label>
-          <input type="email" id="online-community-email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="online-community-phone">電話番号</label>
-          <input type="tel" id="online-community-phone" name="phone">
-        </div>
-
-        <p class="reservation-form-note">送信後、ご登録いただいたメールアドレス宛に、オンラインコミュニティ参加方法の詳細をお送りします。</p>
-        <p class="reservation-form-error"></p>
-        <button type="submit" class="btn btn-primary reservation-submit">申し込む</button>
-      </div>
-
-      <div data-online-community-step="success" hidden>
-        <p>ご申し込みありがとうございます。詳細情報をご登録のメールアドレス宛にお送りします。</p>
-      </div>
-    </form>
-  </div>
-</div>
-
-<script src="script.js?v=8"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>
