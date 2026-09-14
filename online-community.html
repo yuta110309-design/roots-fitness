@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap"></noscript>
-<link rel="stylesheet" href="style.css?v=20">
+<link rel="stylesheet" href="style.css?v=21">
 <style>
 .online-community-hero {
   color: white;
@@ -206,26 +206,34 @@
 }
 
 .pricing-card {
-  background: white;
-  padding: 40px 30px;
+  background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%);
+  padding: 45px 35px;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(46, 61, 40, 0.15);
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(46, 61, 40, 0.25);
 }
 
 .pricing-card h3 {
   font-size: 1.3rem;
-  color: #2E3D28;
+  color: white;
   margin-bottom: 20px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .pricing-features {
   text-align: left;
   margin: 20px 0;
   padding: 20px 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .pricing-features li {
@@ -233,7 +241,7 @@
   margin: 12px 0;
   padding-left: 25px;
   position: relative;
-  color: #555;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.95rem;
 }
 
@@ -241,29 +249,30 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #2E3D28;
+  color: #FFD700;
   font-weight: bold;
 }
 
 .pricing-price {
   font-size: 2.5rem;
-  color: #E74C3C;
+  color: #FFD700;
   margin: 20px 0;
   font-weight: 700;
 }
 
 .pricing-unit {
   font-size: 0.95rem;
-  color: #666;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .entry-fee {
-  background: #fff3cd;
+  background: rgba(46, 61, 40, 0.08);
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 8px;
   font-size: 0.95rem;
-  color: #856404;
+  color: #2E3D28;
+  border-left: 4px solid #2E3D28;
 }
 
 .entry-fee-note {
