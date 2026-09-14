@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=33">
+<link rel="stylesheet" href="style.css?v=34">
 <style>
 .online-community-hero {
   color: white;
@@ -345,6 +345,149 @@
   display: block;
 }
 
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-content {
+  background-color: #F2F1E6;
+  padding: 40px 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #999;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: #2E3D28;
+}
+
+.modal-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: #997755;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+}
+
+.modal-subtitle {
+  font-size: 1.5rem;
+  color: #2E3D28;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.modal-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  color: #2E3D28;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.required {
+  color: #d32f2f;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus {
+  outline: none;
+  border-color: #3d6b47;
+  box-shadow: 0 0 0 3px rgba(61, 107, 71, 0.1);
+}
+
+.radio-group {
+  display: flex;
+  gap: 30px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.radio-label input[type="radio"] {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
 .steps-section {
   background: #f5f5f5;
   padding: 60px 0;
@@ -461,7 +604,7 @@
     <span class="section-eyebrow" style="color: rgba(255,255,255,0.8); font-size: 0.85rem; letter-spacing: 0.15em; display: inline-block; margin-bottom: 25px;">Online Community</span>
     <h1 style="margin-top: 0; margin-bottom: 30px; line-height: 1.3;">自宅でも、本質的な健康を。</h1>
     <p style="font-size: 1.05rem; line-height: 1.85; margin-bottom: 50px; opacity: 0.95;">ライブトレーニング、栄養ガイド、トレーナーサポート。<br class="mobile-break">Roots Fitness のオンラインコミュニティで、毎日の健康をサポート。</p>
-    <a href="https://roots-fitness.fit-karte.com/mypage?s=roots-fitness-community&openExternalBrowser=1" class="btn btn-primary" style="background: white; color: #2E3D28; display: inline-block; text-decoration: none; padding: 16px 48px; font-weight: 600;">今すぐ参加する</a>
+    <button onclick="openReservationModal()" class="btn btn-primary" style="background: white; color: #2E3D28; display: inline-block; text-decoration: none; padding: 16px 48px; font-weight: 600; border: none; cursor: pointer; font-size: 1rem;">今すぐ参加する</button>
   </div>
 </section>
 
@@ -712,6 +855,78 @@
   </div>
 </footer>
 
+<!-- Reservation Modal -->
+<div id="reservationModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeReservationModal()">&times;</button>
+    <h2 class="modal-title">RESERVATION</h2>
+    <h3 class="modal-subtitle">体験予約はこちら</h3>
+    <p class="modal-description">下記フォームにご記入ください。ご入力いただいたメールアドレス宛に、選択した店舗のご案内をお送りします。</p>
+
+    <form class="reservation-form" onsubmit="handleReservationSubmit(event)">
+      <div class="form-group">
+        <label for="name">お名前 <span class="required">*</span></label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="age">ご年齢 <span class="required">*</span></label>
+        <input type="text" id="age" name="age" placeholder="例：25">
+      </div>
+
+      <div class="form-group">
+        <label>店舗選択 <span class="required">*</span></label>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="branch" value="代宮山" required>
+            代宮山
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="branch" value="軽井沢">
+            軽井沢
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">メールアドレス <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">お電話番号 <span class="required">*</span></label>
+        <input type="tel" id="phone" name="phone">
+      </div>
+
+      <button type="submit" class="submit-btn">送信する</button>
+    </form>
+  </div>
+</div>
+
 <script src="script.js?v=10"></script>
+<script>
+function openReservationModal() {
+  document.getElementById('reservationModal').style.display = 'flex';
+}
+
+function closeReservationModal() {
+  document.getElementById('reservationModal').style.display = 'none';
+}
+
+function handleReservationSubmit(event) {
+  event.preventDefault();
+  alert('ご予約ありがとうございます。\nご入力いただいたメールアドレスに案内を送信いたします。');
+  closeReservationModal();
+  document.querySelector('.reservation-form').reset();
+}
+
+// モーダルの外側クリックで閉じる
+window.onclick = function(event) {
+  const modal = document.getElementById('reservationModal');
+  if (event.target === modal) {
+    closeReservationModal();
+  }
+}
+</script>
 </body>
 </html>
