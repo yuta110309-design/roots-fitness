@@ -3079,6 +3079,7 @@ a.news-card:hover {
   object-fit: cover;
   z-index: 0;
   opacity: 0.65;
+  filter: contrast(1.15) brightness(0.95) saturate(1.1);
 }
 
 .online-community-hero {
