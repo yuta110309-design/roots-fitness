@@ -512,6 +512,25 @@
   margin-top: 40px;
 }
 
+.pricing-grid-2col {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+.pricing-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 20px 0;
+  margin-top: 40px;
+  scroll-snap-type: x proximity;
+}
+
+.pricing-scroll .pricing-card {
+  flex: 0 0 calc(100% - 20px);
+  scroll-snap-align: start;
+}
+
 .pricing-card {
   background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%);
   padding: 45px 35px;
@@ -1077,7 +1096,7 @@
       <p class="entry-fee-note">※ 既に Roots Fitness に入会されている方は入会金不要です</p>
     </div>
 
-    <div class="pricing-grid">
+    <div class="pricing-grid pricing-grid-2col">
       <div class="pricing-card">
         <h3>動画視聴プラン</h3>
         <div class="pricing-price">3,980<span class="pricing-unit">円/月（税抜）</span></div>
@@ -1088,7 +1107,9 @@
           <li>過去ライブの動画閲覧</li>
         </ul>
       </div>
+    </div>
 
+    <div class="pricing-scroll">
       <div class="pricing-card">
         <h3>サポートプラン</h3>
         <div class="pricing-price">5,980<span class="pricing-unit">円/月（税抜）</span></div>
@@ -1257,7 +1278,7 @@
   </div>
 </div>
 
-<script src="script.js?v=17"></script>
+<script src="script.js?v=18"></script>
 <script>
 function openReservationModal() {
   document.getElementById('reservationModal').style.display = 'flex';
