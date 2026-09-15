@@ -1025,9 +1025,19 @@
           return buildTrainerGroupHtml(groupsByStore[key]);
         }).join("");
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.error('trainers.json fetch failed:', err);
         trainerGroups.innerHTML = '<p class="plan-loading">トレーナー情報の読み込みに失敗しました。</p>';
       });
+
+    // デバッグ: trainers.json が読み込まれたか確認
+    setTimeout(function () {
+      var photoElements = document.querySelectorAll('.trainer-card-photo-img');
+      console.log('Trainer photos found:', photoElements.length);
+      if (photoElements.length === 0) {
+        console.warn('No trainer photos displayed. Check trainers.json photo field.');
+      }
+    }, 1000);
 
     var trainerDetailModal = document.getElementById("trainer-detail-modal");
     var trainerDetailBody = document.getElementById("trainer-detail-modal-body");
