@@ -867,8 +867,9 @@
             : formatYen(plan.price) + " / " + plan.priceUnit + (plan.unitPrice ? "(単価 " + formatYen(plan.unitPrice) + ")" : "");
 
         var store = storeMapCache[storeId];
+        var isOnlinePlan = plan.id && (plan.id.startsWith("online-"));
         var fitkarteLinkHtml =
-          store && store.fitkarteUrl
+          store && store.fitkarteUrl && !isOnlinePlan
             ? '<a href="' + store.fitkarteUrl + '" class="btn btn-line btn-small plan-detail-fitkarte-link" target="_blank" rel="noopener noreferrer">フィットカルテで予約する</a>'
             : "";
 
