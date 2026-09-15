@@ -1,0 +1,16 @@
+# GitHub Pages configuration
+markdown: kramdown
+theme: jekyll-theme-minimal
+
+# Disable Jekyll processing for HTML files
+include:
+  - .htaccess
+
+# Cache-related settings
+future: true
+show_drafts: true
+
+# Disable caching
+keep_files:
+  - CNAME
+  - .well-known
