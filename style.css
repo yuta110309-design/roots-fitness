@@ -1970,11 +1970,7 @@ a.news-card:hover {
 .trainer-card-photo {
   position: relative;
   height: 220px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  width: 100%;
   background: linear-gradient(160deg, #33422c 0%, #2e3d28 60%, #232f1e 100%);
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.8rem;
@@ -1982,11 +1978,14 @@ a.news-card:hover {
   text-align: center;
   padding: 12px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .trainer-card-photo.has-photo {
-  background: none;
-  color: inherit;
+  background: transparent;
+  padding: 0;
 }
 
 .trainer-card-tap-badge {
