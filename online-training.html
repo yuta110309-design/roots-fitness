@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=202">
+<link rel="stylesheet" href="style.css?v=203">
 <style>
 .online-community-hero {
   color: white;
@@ -447,7 +447,8 @@
 .trainer-photo img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: top;
   border-radius: 8px;
 }
 
@@ -1099,7 +1100,7 @@
       <p class="entry-fee-note">※ 既に Roots Fitness に入会されている方は入会金不要です</p>
     </div>
 
-    <div class="pricing-grid pricing-grid-2col">
+    <div class="pricing-scroll" style="margin-top: 40px;">
       <div class="pricing-card">
         <h3>動画視聴プラン</h3>
         <div class="pricing-price">3,980<span class="pricing-unit">円/月（税抜）</span></div>
@@ -1281,7 +1282,7 @@
   </div>
 </div>
 
-<script src="script.js?v=202"></script>
+<script src="script.js?v=203"></script>
 <script>
 function openReservationModal() {
   document.getElementById('reservationModal').style.display = 'flex';
