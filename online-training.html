@@ -524,10 +524,14 @@
   padding: 20px 0;
   margin-top: 40px;
   scroll-snap-type: x proximity;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .pricing-scroll .pricing-card {
-  flex: 0 0 calc(100% - 20px);
+  flex: 0 0 min(90vw, 350px);
   scroll-snap-align: start;
 }
 
@@ -1278,7 +1282,7 @@
   </div>
 </div>
 
-<script src="script.js?v=18"></script>
+<script src="script.js?v=19"></script>
 <script>
 function openReservationModal() {
   document.getElementById('reservationModal').style.display = 'flex';
