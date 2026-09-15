@@ -840,26 +840,31 @@
       });
 
     // ボタンテキストを更新する関数
-    function updateReservationButtonText() {
-      var activeTab = document.querySelector("[data-plan-tab].is-active");
-      var target = activeTab ? activeTab.getAttribute("data-plan-tab") : "daikanyama";
+    function updateReservationButtonText(target) {
       var reservationBtn = document.querySelector("[data-open-reservation]");
-      if (reservationBtn) {
+      if (reservationBtn && target) {
         reservationBtn.textContent = target === "online" ? "申し込む" : "体験予約はこちら";
       }
     }
 
     // ページ初期化時に実行
-    updateReservationButtonText();
+    var initialTab = document.querySelector("[data-plan-tab].is-active");
+    if (initialTab) {
+      updateReservationButtonText(initialTab.getAttribute("data-plan-tab"));
+    }
 
     planTabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
         var target = tab.getAttribute("data-plan-tab");
 
         planTabs.forEach(function (t) {
-          var isActive = t === tab;
-          t.classList.toggle("is-active", isActive);
-          t.setAttribute("aria-selected", isActive ? "true" : "false");
+          if (t === tab) {
+            t.classList.add("is-active");
+            t.setAttribute("aria-selected", "true");
+          } else {
+            t.classList.remove("is-active");
+            t.setAttribute("aria-selected", "false");
+          }
         });
 
         planPanelsRoot.querySelectorAll("[data-plan-panel]").forEach(function (panel) {
@@ -867,7 +872,7 @@
         });
 
         // ボタンテキストを更新
-        updateReservationButtonText();
+        updateReservationButtonText(target);
       });
     });
 
