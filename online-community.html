@@ -64,27 +64,88 @@
     margin-bottom: 0 !important;
   }
 
+  /* Services Carousel on Mobile */
+  .services-showcase-section .container {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    margin: 0 -20px;
+    flex-wrap: nowrap;
+  }
+
   .service-showcase-item {
+    flex: 0 0 calc(100vw - 80px) !important;
+    scroll-snap-align: start;
     flex-direction: column !important;
-    gap: 30px !important;
+    gap: 20px !important;
   }
 
   .service-visual {
-    min-width: 100% !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: white;
+    margin: 0 auto;
+  }
+
+  .phone-mockup {
+    display: none !important;
+  }
+
+  .phone-screen {
+    display: none !important;
+  }
+
+  .service-visual {
+    background: linear-gradient(135deg, #3d6b47 0%, #2d5037 100%);
+  }
+
+  .service-showcase-item:nth-child(3) .service-visual {
+    background: linear-gradient(135deg, #4a7c5f 0%, #3a6d50 100%);
+  }
+
+  .service-showcase-item:nth-child(4) .service-visual {
+    background: linear-gradient(135deg, #5a8c6f 0%, #4a7c60 100%);
+  }
+
+  .service-showcase-item:nth-child(5) .service-visual {
+    background: linear-gradient(135deg, #6a9c7f 0%, #5a8c70 100%);
+  }
+
+  .service-showcase-item:nth-child(6) .service-visual {
+    background: linear-gradient(135deg, #7aac8f 0%, #6a9c80 100%);
   }
 
   .service-content {
-    gap: 20px !important;
+    gap: 15px !important;
+  }
+
+  .service-content h3 {
+    font-size: 1.3rem !important;
+  }
+
+  .service-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
   }
 
   .service-buttons {
     flex-direction: column !important;
-    gap: 12px !important;
+    gap: 10px !important;
   }
 
   .service-buttons .btn {
     width: 100% !important;
     text-align: center !important;
+    padding: 10px 20px !important;
+    font-size: 0.85rem !important;
   }
 }
 
