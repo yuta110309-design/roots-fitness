@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=10003">
+<link rel="stylesheet" href="style.css?v=10004">
 <style>
 .online-community-hero {
   color: white;
@@ -422,22 +422,22 @@
 
 .trainers-section .container {
   display: block !important;
-  padding: 0 20px !important;
+  padding: 0 !important;
 }
 
 .trainers-section .section-title {
-  padding: 0 !important;
+  padding: 0 20px !important;
   margin-bottom: 40px !important;
 }
 
 #online-trainers-container {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
-  padding: 0 0 20px 0;
-  margin: 0 -20px;
+  padding: 0 20px 20px 20px;
+  margin: 0;
   scrollbar-width: thin;
   scrollbar-color: rgba(0,0,0,0.2) transparent;
 }
@@ -463,15 +463,11 @@
   background: white;
   border-radius: 8px;
   align-items: start;
-  flex: 0 0 min(80vw, 340px);
+  flex: 0 0 min(75vw, 320px);
   scroll-snap-align: start;
   scroll-snap-stop: always;
   margin-bottom: 0 !important;
-  margin-left: 20px;
-}
-
-.trainer-item:last-child {
-  margin-right: 20px;
+  margin: 0 !important;
 }
 
 .trainer-photo {
@@ -1326,7 +1322,7 @@
   </div>
 </div>
 
-<script src="script.js?v=10003"></script>
+<script src="script.js?v=10004"></script>
 <script>
 function openReservationModal() {
   document.getElementById('reservationModal').style.display = 'flex';
