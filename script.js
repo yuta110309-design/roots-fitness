@@ -839,11 +839,11 @@
         });
       });
 
-    // ボタンテキストを更新する関数
+    // ボタンテキストを更新する関数（plan-actionsセクション内のボタンのみ）
     function updateReservationButtonText(target) {
-      var reservationBtn = document.querySelector("[data-open-reservation]");
-      if (reservationBtn && target) {
-        reservationBtn.textContent = target === "online" ? "申し込む" : "体験予約はこちら";
+      var planActionsBtn = document.querySelector(".plan-actions [data-open-reservation]");
+      if (planActionsBtn && target) {
+        planActionsBtn.textContent = target === "online" ? "申し込む" : "体験予約はこちら";
       }
     }
 
