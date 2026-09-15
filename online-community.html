@@ -66,21 +66,18 @@
 
   /* Services Carousel on Mobile */
   .services-showcase-section .container {
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding: 0 20px 20px 20px;
-    margin: 0 -20px;
-    flex-wrap: nowrap;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    padding: 20px !important;
+    margin: 0 !important;
   }
 
   .service-showcase-item {
-    flex: 0 0 calc(100vw - 80px) !important;
-    scroll-snap-align: start;
+    flex: none !important;
     flex-direction: column !important;
     gap: 20px !important;
+    margin-bottom: 0 !important;
   }
 
   .service-visual {
@@ -1260,7 +1257,7 @@
   </div>
 </div>
 
-<script src="script.js?v=14"></script>
+<script src="script.js?v=15"></script>
 <script>
 function openReservationModal() {
   document.getElementById('reservationModal').style.display = 'flex';
