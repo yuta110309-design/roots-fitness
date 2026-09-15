@@ -1981,6 +1981,12 @@ a.news-card:hover {
   letter-spacing: 0.04em;
   text-align: center;
   padding: 12px;
+  overflow: hidden;
+}
+
+.trainer-card-photo.has-photo {
+  background: none;
+  color: inherit;
 }
 
 .trainer-card-tap-badge {
