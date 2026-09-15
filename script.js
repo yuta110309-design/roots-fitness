@@ -1000,6 +1000,16 @@
           return;
         }
 
+        // photo フィールドが存在しない場合は自動生成
+        trainers.forEach(function (trainer) {
+          if (!trainer.photo) {
+            // trainer.id から写真パスを生成
+            var trainerName = trainer.id ? trainer.id.replace('trainer-', '') : '';
+            var storeName = trainer.store === 'daikanyama' ? 'daikanyama' : 'karuizawa';
+            trainer.photo = 'images/trainer-' + storeName + '-' + trainerName + '.jpg';
+          }
+        });
+
         var groupOrder = [];
         var groupsByStore = {};
         trainers.forEach(function (trainer) {
