@@ -839,6 +839,19 @@
         });
       });
 
+    // ボタンテキストを更新する関数
+    function updateReservationButtonText() {
+      var activeTab = document.querySelector("[data-plan-tab].is-active");
+      var target = activeTab ? activeTab.getAttribute("data-plan-tab") : "daikanyama";
+      var reservationBtn = document.querySelector("[data-open-reservation]");
+      if (reservationBtn) {
+        reservationBtn.textContent = target === "online" ? "申し込む" : "体験予約はこちら";
+      }
+    }
+
+    // ページ初期化時に実行
+    updateReservationButtonText();
+
     planTabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
         var target = tab.getAttribute("data-plan-tab");
@@ -853,11 +866,8 @@
           panel.hidden = panel.getAttribute("data-plan-panel") !== target;
         });
 
-        // オンラインタブの場合、ボタンテキストを「申し込み」に変更
-        var reservationBtn = document.querySelector("[data-open-reservation]");
-        if (reservationBtn) {
-          reservationBtn.textContent = target === "online" ? "申し込み" : "体験予約はこちら";
-        }
+        // ボタンテキストを更新
+        updateReservationButtonText();
       });
     });
 
