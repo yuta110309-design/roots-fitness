@@ -2049,11 +2049,16 @@ a.news-card:hover {
 }
 
 .trainer-card-summary {
-  display: block;
+  display: none;
   font-size: 0.85rem;
   color: var(--color-text-soft);
   line-height: 1.8;
   margin: 0 0 14px;
+  transition: all 0.3s ease;
+}
+
+.trainer-card.is-expanded .trainer-card-summary {
+  display: block;
 }
 
 .trainer-detail-role {

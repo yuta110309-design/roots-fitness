@@ -973,7 +973,7 @@
           '<span class="trainer-card-body">' +
             '<span class="trainer-card-name">' + trainer.name + "</span>" +
             '<span class="trainer-card-role">' + trainer.role + "</span>" +
-            '<span class="trainer-card-summary">' + trainer.summary + "</span>" +
+            '<span class="trainer-card-summary" data-trainer-summary>' + trainer.summary + "</span>" +
           "</span>" +
         "</div>"
       );
@@ -1074,8 +1074,7 @@
         var btn = e.target.closest("[data-trainer-detail]");
         if (!btn) return;
         e.preventDefault();
-        var trainer = trainerById[btn.getAttribute("data-trainer-detail")];
-        if (trainer) openTrainerDetailModal(trainer, btn);
+        btn.classList.toggle("is-expanded");
       });
 
       trainerGroups.addEventListener("keydown", function (e) {
