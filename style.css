@@ -1292,6 +1292,13 @@ a.news-card:hover {
   border-bottom: 1px solid rgba(46, 61, 40, 0.12);
 }
 
+.plan-category-note {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  margin: 10px 0 16px 0;
+  padding: 0;
+}
+
 .plan-schedule {
   margin-bottom: 20px;
 }

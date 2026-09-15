@@ -173,6 +173,7 @@
       {
         "id": "online",
         "name": "オンライン",
+        "note": "※体験制度はありません",
         "plans": [
           {
             "id": "online-video",

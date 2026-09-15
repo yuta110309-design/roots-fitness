@@ -799,6 +799,7 @@
         html +=
           '<div class="plan-category">' +
             '<h3 class="plan-category-title">' + category.name + "</h3>" +
+            (category.note ? '<p class="plan-category-note">' + category.note + '</p>' : '') +
             buildScheduleHtml(category.schedule) +
             '<div class="plan-cards">' + plans.map(buildPlanCardHtml).join("") + "</div>" +
           "</div>";
