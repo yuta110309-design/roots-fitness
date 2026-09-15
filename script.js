@@ -138,7 +138,7 @@
 
   var storesDataUrl = document.body.getAttribute("data-stores-json") || "data/stores.json";
 
-  fetch(storesDataUrl)
+  fetch(storesDataUrl + "?v=" + Date.now())
     .then(function (res) {
       return res.ok ? res.json() : null;
     })
@@ -806,7 +806,7 @@
       return html || '<p class="plan-loading">現在この店舗のプランは準備中です。</p>';
     }
 
-    fetch(planPanelsRoot.getAttribute("data-plans-source"))
+    fetch(planPanelsRoot.getAttribute("data-plans-source") + "?v=" + Date.now())
       .then(function (res) {
         return res.ok ? res.json() : { categories: [] };
       })
@@ -958,7 +958,7 @@
       );
     }
 
-    fetch(trainerGroups.getAttribute("data-trainers-source"))
+    fetch(trainerGroups.getAttribute("data-trainers-source") + "?v=" + Date.now())
       .then(function (res) {
         return res.ok ? res.json() : { trainers: [] };
       })
@@ -1235,7 +1235,7 @@
       );
     }
 
-    fetch(reviewGroups.getAttribute("data-reviews-source"))
+    fetch(reviewGroups.getAttribute("data-reviews-source") + "?v=" + Date.now())
       .then(function (res) {
         return res.ok ? res.json() : { stores: [] };
       })
@@ -1298,7 +1298,7 @@
   }
 
   if (faqList && faqTabs) {
-    fetch(faqList.getAttribute("data-faq-source"))
+    fetch(faqList.getAttribute("data-faq-source") + "?v=" + Date.now())
       .then(function (res) {
         return res.ok ? res.json() : { categories: [] };
       })
