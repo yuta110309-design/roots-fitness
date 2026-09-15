@@ -42,14 +42,26 @@
           "photo": "images/plan-personal.jpg"
         },
         {
-          "id": "personal-single",
-          "name": "単発(都度)",
+          "id": "personal-trial",
+          "name": "単発体験",
           "frequency": "1回",
           "price": 9000,
           "priceUnit": "回",
           "unitPrice": null,
-          "note": "会員以外・都度利用向け",
-          "recommendedFor": "まずは1回試してみたい方、出張や旅行のタイミングで単発利用したい方に。",
+          "note": "新規向け・体験コース",
+          "recommendedFor": "まずは1回試してみたい方、本質的なトレーニングを体験したい方に。",
+          "photoNote": "体験コースのセッション風景",
+          "photo": "images/plan-personal.jpg"
+        },
+        {
+          "id": "personal-single",
+          "name": "単発(都度)",
+          "frequency": "1回",
+          "price": 13000,
+          "priceUnit": "回",
+          "unitPrice": null,
+          "note": "会員向け・体験後の都度利用",
+          "recommendedFor": "体験後に都度利用したい方、出張や旅行のタイミングで単発利用したい方に。",
           "photoNote": "単発利用時のセッション風景",
           "photo": "images/plan-personal.jpg"
         }
