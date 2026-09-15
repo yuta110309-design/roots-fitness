@@ -961,12 +961,19 @@
 
     function buildTrainerCardHtml(trainer) {
       trainerById[trainer.id] = trainer;
-      var photoHtml = trainer.photo
-        ? '<img class="trainer-card-photo-img" src="' + trainer.photo + '" alt="' + trainer.name + 'トレーナー" loading="lazy">'
-        : PHOTO_PLACEHOLDER_ICON + (trainer.photoNote || "トレーナー写真");
+
+      // photo フィールドが無い場合は自動生成
+      if (!trainer.photo) {
+        var trainerName = trainer.id ? trainer.id.replace('trainer-', '') : trainer.name.toLowerCase();
+        var storeName = trainer.store === 'daikanyama' ? 'daikanyama' : trainer.store === 'karuizawa' ? 'karuizawa' : 'daikanyama';
+        trainer.photo = 'images/trainer-' + storeName + '-' + trainerName + '.jpg';
+      }
+
+      var photoHtml = '<img class="trainer-card-photo-img" src="' + trainer.photo + '" alt="' + trainer.name + 'トレーナー" loading="lazy">';
+
       return (
         '<div class="trainer-card" role="button" tabindex="0" data-trainer-detail="' + trainer.id + '">' +
-          '<div class="trainer-card-photo' + (trainer.photo ? " has-photo" : "") + '">' +
+          '<div class="trainer-card-photo has-photo">' +
             photoHtml +
             '<span class="trainer-card-tap-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>' +
           "</div>" +
