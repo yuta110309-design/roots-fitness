@@ -1002,10 +1002,10 @@
 
         // photo フィールドが存在しない場合は自動生成
         trainers.forEach(function (trainer) {
-          if (!trainer.photo) {
+          if (!trainer.photo || trainer.photo === '') {
             // trainer.id から写真パスを生成
-            var trainerName = trainer.id ? trainer.id.replace('trainer-', '') : '';
-            var storeName = trainer.store === 'daikanyama' ? 'daikanyama' : 'karuizawa';
+            var trainerName = trainer.id ? trainer.id.replace('trainer-', '') : trainer.name.toLowerCase();
+            var storeName = trainer.store === 'daikanyama' ? 'daikanyama' : trainer.store === 'karuizawa' ? 'karuizawa' : 'daikanyama';
             trainer.photo = 'images/trainer-' + storeName + '-' + trainerName + '.jpg';
           }
         });
