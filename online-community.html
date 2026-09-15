@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=63">
+<link rel="stylesheet" href="style.css?v=64">
 <style>
 .online-community-hero {
   color: white;
@@ -25,6 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, rgba(61, 107, 71, 0.9) 0%, rgba(45, 80, 55, 0.9) 100%);
 }
 
 @media (max-width: 768px) {
@@ -621,7 +622,7 @@
 
 <!-- Hero Section -->
 <section class="online-community-hero">
-  <video autoplay muted loop playsinline class="hero-video">
+  <video muted loop playsinline class="hero-video" preload="auto">
     <source src="images/hero-background.mp4" type="video/mp4">
   </video>
   <div class="container">
@@ -944,14 +945,29 @@ function handleReservationSubmit(event) {
 }
 
 // ビデオの自動再生を強制
-document.addEventListener('DOMContentLoaded', function() {
+function playVideo() {
   const video = document.querySelector('.hero-video');
   if (video) {
-    video.play().catch(function(error) {
-      console.log('Video autoplay failed:', error);
-    });
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(function(error) {
+        console.log('Video play failed, will retry on user interaction');
+        document.addEventListener('touchstart', playVideo, { once: true });
+        document.addEventListener('click', playVideo, { once: true });
+      });
+    }
   }
-});
+}
+
+// ページロード時に再生を試みる
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', playVideo);
+} else {
+  playVideo();
+}
+
+// ユーザー操作時にも再生を試みる
+document.addEventListener('touchstart', playVideo, { once: true });
 
 // モーダルの外側クリックで閉じる
 window.onclick = function(event) {
