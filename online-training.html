@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Yuji+Syuku&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=10001">
+<link rel="stylesheet" href="style.css?v=10002">
 <style>
 .online-community-hero {
   color: white;
@@ -421,15 +421,7 @@
 }
 
 .trainers-section .container {
-  display: flex !important;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
-  gap: 20px;
-  padding: 0 20px;
-  margin: 0 -20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 !important;
 }
 
 #online-trainers-container {
@@ -437,12 +429,24 @@
   gap: 20px;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x proximity;
-  padding: 0 0 20px 0;
-  margin: 0 -30px;
-  padding-left: 30px;
-  padding-right: 30px;
-  width: calc(100% + 60px);
+  scroll-snap-type: x mandatory;
+  padding: 0 20px 20px 20px;
+  margin: 40px -20px 0 -20px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.2) transparent;
+}
+
+#online-trainers-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+#online-trainers-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#online-trainers-container::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
 }
 
 .trainer-item {
@@ -453,8 +457,9 @@
   background: white;
   border-radius: 8px;
   align-items: start;
-  flex: 0 0 min(90vw, 380px);
+  flex: 0 0 min(85vw, 360px);
   scroll-snap-align: start;
+  scroll-snap-stop: always;
   margin-bottom: 0 !important;
 }
 
@@ -1310,7 +1315,7 @@
   </div>
 </div>
 
-<script src="script.js?v=10001"></script>
+<script src="script.js?v=10002"></script>
 <script>
 function openReservationModal() {
   document.getElementById('reservationModal').style.display = 'flex';
