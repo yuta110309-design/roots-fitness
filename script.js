@@ -988,7 +988,7 @@
       );
     }
 
-    fetch(trainerGroups.getAttribute("data-trainers-source") + "?v=" + Date.now())
+    fetch(trainerGroups.getAttribute("data-trainers-source") + "?v=2")
       .then(function (res) {
         return res.ok ? res.json() : { trainers: [] };
       })
