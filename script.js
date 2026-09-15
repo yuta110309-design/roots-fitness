@@ -897,6 +897,13 @@
         var plan = planById[btn.getAttribute("data-plan-detail")];
         var panel = btn.closest("[data-plan-panel]");
         var storeId = panel ? panel.getAttribute("data-plan-panel") : null;
+
+        // online-support プランの場合は online-community.html へ移動
+        if (plan && plan.id === "online-support") {
+          window.location.href = "online-community.html";
+          return;
+        }
+
         if (plan) openPlanDetailModal(plan, btn, storeId);
       });
 
