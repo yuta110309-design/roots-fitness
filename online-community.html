@@ -344,6 +344,27 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
   margin: 60px 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.features-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.features-grid::-webkit-scrollbar-track {
+  background: rgba(61, 107, 71, 0.1);
+  border-radius: 10px;
+}
+
+.features-grid::-webkit-scrollbar-thumb {
+  background: rgba(61, 107, 71, 0.5);
+  border-radius: 10px;
+}
+
+.features-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(61, 107, 71, 0.8);
 }
 
 .feature-card {
@@ -360,6 +381,10 @@
   box-shadow: 0 6px 16px rgba(46, 61, 40, 0.2);
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  min-width: 280px;
 }
 
 .feature-card:hover {
@@ -841,7 +866,19 @@
   }
 
   .features-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 10px;
+  }
+
+  .feature-card {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: 80vw;
+    min-width: 280px;
+    max-width: 360px;
   }
 
   .pricing-grid {
