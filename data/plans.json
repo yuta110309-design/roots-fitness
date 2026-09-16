@@ -6,6 +6,18 @@
       "name": "パーソナル",
       "plans": [
         {
+          "id": "personal-trial",
+          "name": "新規体験",
+          "frequency": "1回（初回限定）",
+          "price": 9000,
+          "priceUnit": "回",
+          "unitPrice": null,
+          "note": "初回限定キャンペーン",
+          "recommendedFor": "初めてパーソナルトレーニングを試してみたい方に。",
+          "photoNote": "新規体験のセッション風景",
+          "photo": "images/plan-personal.jpg"
+        },
+        {
           "id": "personal-weekly1",
           "name": "週1回コース",
           "frequency": "月4回",
