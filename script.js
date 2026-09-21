@@ -741,11 +741,10 @@
             '<div class="plan-card-price-amount">' + priceHtml + '</div>' +
             '<div class="plan-card-price-details">' +
               (plan.unitPrice
-                ? '<span class="plan-card-price-sub">単価 ' + formatYen(plan.unitPrice) + "</span>"
-                : "") +
-              (plan.note && plan.price !== null && plan.price !== undefined
-                ? '<span class="plan-card-note-in-price">' + plan.note + '</span>'
-                : "") +
+                ? '<span class="plan-card-price-sub">単価 ' + formatYen(plan.unitPrice) +
+                  (plan.note ? '（' + plan.note + '）' : '') +
+                  "</span>"
+                : (plan.note ? '<span class="plan-card-note-in-price">' + plan.note + '</span>' : "")) +
             '</div>' +
           "</div>" +
           '<button type="button" class="plan-card-detail-btn" data-plan-detail="' + plan.id + '">詳細を見る</button>' +
