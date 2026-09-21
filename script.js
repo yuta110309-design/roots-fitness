@@ -725,10 +725,7 @@
       } else {
         priceHtml =
           '<span class="plan-card-price-main">' + formatYen(plan.price) +
-          '<span class="plan-card-price-unit">/' + plan.priceUnit + "</span></span>" +
-          (plan.unitPrice
-            ? '<span class="plan-card-price-sub">単価 ' + formatYen(plan.unitPrice) + "</span>"
-            : "");
+          '<span class="plan-card-price-unit">/' + plan.priceUnit + "</span></span>";
       }
 
       return (
@@ -743,6 +740,9 @@
           '<div class="plan-card-price">' +
             '<div class="plan-card-price-amount">' + priceHtml + '</div>' +
             '<div class="plan-card-price-details">' +
+              (plan.unitPrice
+                ? '<span class="plan-card-price-sub">単価 ' + formatYen(plan.unitPrice) + "</span>"
+                : "") +
               (plan.note && plan.price !== null && plan.price !== undefined
                 ? '<span class="plan-card-note-in-price">' + plan.note + '</span>'
                 : "") +
