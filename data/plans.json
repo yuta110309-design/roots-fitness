@@ -1,5 +1,5 @@
 {
-  "_comment": "料金プランデータ。代官山・軽井沢は共通の categories(パーソナル/セミパーソナル)を使用する。各プランに stores を指定しなければ両店舗に表示され、店舗ごとに提供プランが異なることが確定したら該当プランに \"stores\": [\"daikanyama\", \"karuizawa\"] のように対象店舗idの配列を追加すればよい(値は data/stores.json の id と対応)。オンラインは代官山/軽井沢と価格体系が異なる(一律月額)ため、online に独立したカテゴリを持たせている。recommendedFor は「どんな人におすすめか」、photoNote はセッション風景写真の差し替え待ちプレースホルダー(プラン詳細モーダルで表示)。カテゴリに schedule({ 時間帯名: [開始-終了, ...] })を持たせると、そのカテゴリの見出し下に「時間割」として表示される(セミパーソナルで使用中)。",
+  "_comment": "料金プランデータ。代官山・軽井沢のプランを分離管理。各プランに stores を指定して対象店舗を限定。",
   "categories": [
     {
       "id": "personal",
@@ -15,7 +15,8 @@
           "note": "初回限定キャンペーン",
           "recommendedFor": "初めてパーソナルトレーニングを試してみたい方に。",
           "photoNote": "新規体験のセッション風景",
-          "photo": "images/plan-personal.jpg"
+          "photo": "images/plan-personal.jpg",
+          "stores": ["daikanyama"]
         },
         {
           "id": "personal-weekly1",
@@ -27,7 +28,8 @@
           "note": "",
           "recommendedFor": "運動を習慣として始めたい方、まずは無理なくペースをつかみたい方に。",
           "photoNote": "週1回コースのセッション風景",
-          "photo": "images/plan-personal.jpg"
+          "photo": "images/plan-personal.jpg",
+          "stores": ["daikanyama"]
         },
         {
           "id": "personal-weekly2",
@@ -39,7 +41,8 @@
           "note": "",
           "recommendedFor": "着実に変化を感じたい方、目的に向けて集中して取り組みたい方に。",
           "photoNote": "週2回コースのセッション風景",
-          "photo": "images/plan-personal.jpg"
+          "photo": "images/plan-personal.jpg",
+          "stores": ["daikanyama"]
         },
         {
           "id": "personal-unlimited",
@@ -51,7 +54,8 @@
           "note": "",
           "recommendedFor": "頻度を気にせず、生活の一部としてトレーニングを続けたい方に。",
           "photoNote": "通い放題(パーソナル)のセッション風景",
-          "photo": "images/plan-personal.jpg"
+          "photo": "images/plan-personal.jpg",
+          "stores": ["daikanyama"]
         },
         {
           "id": "personal-single",
@@ -63,7 +67,60 @@
           "note": "会員以外・都度利用向け",
           "recommendedFor": "まずは1回試してみたい方、出張や旅行のタイミングで単発利用したい方に。",
           "photoNote": "単発利用時のセッション風景",
-          "photo": "images/plan-personal.jpg"
+          "photo": "images/plan-personal.jpg",
+          "stores": ["daikanyama"]
+        },
+        {
+          "id": "personal-karuizawa-weekly1",
+          "name": "週1回コース",
+          "frequency": "月4回",
+          "price": 44000,
+          "priceUnit": "月",
+          "unitPrice": 11000,
+          "note": "",
+          "recommendedFor": "運動を習慣として始めたい方、まずは無理なくペースをつかみたい方に。",
+          "photoNote": "週1回コースのセッション風景",
+          "photo": "images/plan-personal.jpg",
+          "stores": ["karuizawa"]
+        },
+        {
+          "id": "personal-karuizawa-weekly2",
+          "name": "週2回コース",
+          "frequency": "月8回",
+          "price": 75000,
+          "priceUnit": "月",
+          "unitPrice": 9375,
+          "note": "",
+          "recommendedFor": "着実に変化を感じたい方、目的に向けて集中して取り組みたい方に。",
+          "photoNote": "週2回コースのセッション風景",
+          "photo": "images/plan-personal.jpg",
+          "stores": ["karuizawa"]
+        },
+        {
+          "id": "personal-karuizawa-unlimited",
+          "name": "通い放題",
+          "frequency": "無制限(休館日以外・週3日目安)",
+          "price": 90000,
+          "priceUnit": "月",
+          "unitPrice": 7500,
+          "note": "",
+          "recommendedFor": "頻度を気にせず、生活の一部としてトレーニングを続けたい方に。",
+          "photoNote": "通い放題(パーソナル)のセッション風景",
+          "photo": "images/plan-personal.jpg",
+          "stores": ["karuizawa"]
+        },
+        {
+          "id": "personal-karuizawa-single",
+          "name": "単発(都度)",
+          "frequency": "1回",
+          "price": 11000,
+          "priceUnit": "回",
+          "unitPrice": null,
+          "note": "会員以外・都度利用向け",
+          "recommendedFor": "まずは1回試してみたい方、出張や旅行のタイミングで単発利用したい方に。",
+          "photoNote": "単発利用時のセッション風景",
+          "photo": "images/plan-personal.jpg",
+          "stores": ["karuizawa"]
         }
       ]
     },
@@ -97,7 +154,8 @@
           "note": "",
           "recommendedFor": "セミパーソナルを、まずは無理なく週1回のペースで試してみたい方に。",
           "photoNote": "週1回コース(セミパーソナル)のセッション風景",
-          "photo": "images/plan-semipersonal.jpg"
+          "photo": "images/plan-semipersonal.jpg",
+          "stores": ["daikanyama"]
         },
         {
           "id": "semi-weekly2",
@@ -109,7 +167,8 @@
           "note": "8回以上通われるなら、通い放題(¥33,000)がお得です。",
           "recommendedFor": "同じ空間に通う仲間とのペースを大切にしながら、着実に続けていきたい方に。",
           "photoNote": "週2回コース(セミパーソナル)のセッション風景",
-          "photo": "images/plan-semipersonal.jpg"
+          "photo": "images/plan-semipersonal.jpg",
+          "stores": ["daikanyama"]
         },
         {
           "id": "semi-unlimited",
@@ -121,7 +180,8 @@
           "note": "",
           "recommendedFor": "同じ場所に通う仲間と、無理なく続けていきたい方に。",
           "photoNote": "セミパーソナル通い放題のセッション風景",
-          "photo": "images/plan-semipersonal.jpg"
+          "photo": "images/plan-semipersonal.jpg",
+          "stores": ["daikanyama"]
         },
         {
           "id": "semi-single",
@@ -133,7 +193,60 @@
           "note": "",
           "recommendedFor": "まずは1回試してみたい方、出張や旅行のタイミングで単発利用したい方に。",
           "photoNote": "単発利用時のセッション風景",
-          "photo": "images/plan-semipersonal.jpg"
+          "photo": "images/plan-semipersonal.jpg",
+          "stores": ["daikanyama"]
+        },
+        {
+          "id": "semi-karuizawa-weekly1",
+          "name": "週1回コース",
+          "frequency": "月4回",
+          "price": 20000,
+          "priceUnit": "月",
+          "unitPrice": 5000,
+          "note": "",
+          "recommendedFor": "セミパーソナルを、まずは無理なく週1回のペースで試してみたい方に。",
+          "photoNote": "週1回コース(セミパーソナル)のセッション風景",
+          "photo": "images/plan-semipersonal.jpg",
+          "stores": ["karuizawa"]
+        },
+        {
+          "id": "semi-karuizawa-weekly2",
+          "name": "週2回コース",
+          "frequency": "月8回",
+          "price": 34000,
+          "priceUnit": "月",
+          "unitPrice": 4250,
+          "note": "",
+          "recommendedFor": "同じ空間に通う仲間とのペースを大切にしながら、着実に続けていきたい方に。",
+          "photoNote": "週2回コース(セミパーソナル)のセッション風景",
+          "photo": "images/plan-semipersonal.jpg",
+          "stores": ["karuizawa"]
+        },
+        {
+          "id": "semi-karuizawa-unlimited",
+          "name": "通い放題",
+          "frequency": "無制限",
+          "price": 28000,
+          "priceUnit": "月",
+          "unitPrice": null,
+          "note": "",
+          "recommendedFor": "同じ場所に通う仲間と、無理なく続けていきたい方に。",
+          "photoNote": "セミパーソナル通い放題のセッション風景",
+          "photo": "images/plan-semipersonal.jpg",
+          "stores": ["karuizawa"]
+        },
+        {
+          "id": "semi-karuizawa-single",
+          "name": "単発(都度)",
+          "frequency": "1回",
+          "price": 6000,
+          "priceUnit": "回",
+          "unitPrice": null,
+          "note": "",
+          "recommendedFor": "まずは1回試してみたい方、出張や旅行のタイミングで単発利用したい方に。",
+          "photoNote": "単発利用時のセッション風景",
+          "photo": "images/plan-semipersonal.jpg",
+          "stores": ["karuizawa"]
         }
       ]
     },
@@ -151,7 +264,8 @@
           "note": "",
           "recommendedFor": "ご家族やご友人と、まずは短期間から一緒に体を動かしてみたい方に。",
           "photoNote": "ペアレッスンのセッション風景",
-          "photo": "images/plan-pair.jpg"
+          "photo": "images/plan-pair.jpg",
+          "stores": ["daikanyama"]
         },
         {
           "id": "pair-ticket24",
@@ -163,7 +277,34 @@
           "note": "",
           "recommendedFor": "お二人のペースで、数ヶ月かけてじっくり取り組みたい方に。",
           "photoNote": "ペアレッスンのセッション風景",
-          "photo": "images/plan-pair.jpg"
+          "photo": "images/plan-pair.jpg",
+          "stores": ["daikanyama"]
+        },
+        {
+          "id": "pair-karuizawa-ticket8",
+          "name": "チケット8回",
+          "frequency": "8回(有効期限2ヶ月)",
+          "price": 54000,
+          "priceUnit": "回券",
+          "unitPrice": 6750,
+          "note": "",
+          "recommendedFor": "ご家族やご友人と、まずは短期間から一緒に体を動かしてみたい方に。",
+          "photoNote": "ペアレッスンのセッション風景",
+          "photo": "images/plan-pair.jpg",
+          "stores": ["karuizawa"]
+        },
+        {
+          "id": "pair-karuizawa-ticket24",
+          "name": "チケット24回",
+          "frequency": "24回(有効期限3ヶ月)",
+          "price": 140000,
+          "priceUnit": "回券",
+          "unitPrice": 5833,
+          "note": "",
+          "recommendedFor": "お二人のペースで、数ヶ月かけてじっくり取り組みたい方に。",
+          "photoNote": "ペアレッスンのセッション風景",
+          "photo": "images/plan-pair.jpg",
+          "stores": ["karuizawa"]
         }
       ]
     }
