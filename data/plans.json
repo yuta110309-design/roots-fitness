@@ -8,7 +8,7 @@
         {
           "id": "personal-trial",
           "name": "新規体験",
-          "frequency": "1回（初回限定）",
+          "frequency": "1回",
           "price": 9000,
           "priceUnit": "回",
           "unitPrice": null,
