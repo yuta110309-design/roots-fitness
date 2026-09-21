@@ -199,6 +199,35 @@
   margin: 16px 0 !important;
   line-height: 1.4 !important;
 }
+
+/* ========== スクロールアニメーション ========== */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.scroll-animate {
+  opacity: 0;
+  animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.scroll-animate:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.scroll-animate:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.scroll-animate:nth-child(3) {
+  animation-delay: 0.4s;
+}
 </style>
 </head>
 <body data-stores-json="data/stores.json">
@@ -315,21 +344,21 @@
     <h2 class="section-title">実績</h2>
 
     <div class="results-badges">
-      <div class="results-badge">
+      <div class="results-badge" data-scroll-animate>
         <div class="results-badge-visual">
           <img class="results-badge-mark" src="images/results-badge-frame.png" alt="" aria-hidden="true" loading="lazy" width="640" height="640">
           <span class="results-badge-value results-badge-value-compact">20,000+</span>
         </div>
         <span class="results-badge-label">累計セッション実績</span>
       </div>
-      <div class="results-badge">
+      <div class="results-badge" data-scroll-animate>
         <div class="results-badge-visual">
           <img class="results-badge-mark" src="images/results-badge-frame.png" alt="" aria-hidden="true" loading="lazy" width="640" height="640">
           <span class="results-badge-value">86件</span>
         </div>
         <span class="results-badge-label">Google口コミ累計</span>
       </div>
-      <div class="results-badge">
+      <div class="results-badge" data-scroll-animate>
         <div class="results-badge-visual">
           <img class="results-badge-mark" src="images/results-badge-frame.png" alt="" aria-hidden="true" loading="lazy" width="640" height="640">
           <span class="results-badge-value">★5.0</span>
@@ -998,3 +1027,26 @@
 </body>
 </html>
 <!-- Force refresh 1789201305 -->
+
+<script>
+// スクロールアニメーション
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('scroll-animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // 結果セクションのマークをアニメーション対象に
+  const marks = document.querySelectorAll('[data-scroll-animate]');
+  marks.forEach(function(mark) {
+    observer.observe(mark);
+  });
+});
+</script>
