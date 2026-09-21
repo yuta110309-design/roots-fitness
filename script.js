@@ -740,10 +740,11 @@
             '<span class="plan-card-name">' + plan.name + "</span>" +
             (plan.frequency ? '<span class="plan-card-freq">' + plan.frequency + "</span>" : "") +
           "</div>" +
-          '<div class="plan-card-price">' + priceHtml + "</div>" +
-          (plan.note && plan.price !== null && plan.price !== undefined
-            ? '<p class="plan-card-note">' + plan.note + "</p>"
-            : "") +
+          '<div class="plan-card-price">' + priceHtml +
+            (plan.note && plan.price !== null && plan.price !== undefined
+              ? '<span class="plan-card-note-in-price">' + plan.note + '</span>'
+              : "") +
+          "</div>" +
           '<button type="button" class="plan-card-detail-btn" data-plan-detail="' + plan.id + '">詳細を見る</button>' +
         "</div>"
       );
