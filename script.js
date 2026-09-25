@@ -809,11 +809,16 @@
       return html || '<p class="plan-loading">現在この店舗のプランは準備中です。</p>';
     }
 
-    fetch(planPanelsRoot.getAttribute("data-plans-source"))
+    var planSourceUrl = planPanelsRoot.getAttribute("data-plans-source");
+    console.log("[DEBUG] Loading plans from:", planSourceUrl);
+
+    fetch(planSourceUrl)
       .then(function (res) {
+        console.log("[DEBUG] Fetch response status:", res.status, res.ok);
         return res.ok ? res.json() : { categories: [] };
       })
       .then(function (data) {
+        console.log("[DEBUG] Plans data loaded successfully", data);
         var defaultCategories = data.categories || [];
         var onlineCategories = data.online && data.online.categories ? data.online.categories : defaultCategories;
 
@@ -835,7 +840,8 @@
           feeNoteEl.textContent = feeText;
         }
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.error("[DEBUG] Failed to load plans:", err);
         planPanelsRoot.querySelectorAll("[data-plan-panel]").forEach(function (panel) {
           panel.innerHTML = '<p class="plan-loading">料金プランの読み込みに失敗しました。</p>';
         });
