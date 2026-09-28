@@ -812,10 +812,14 @@
     var planSourceUrl = planPanelsRoot.getAttribute("data-plans-source");
     console.log("[DEBUG] Loading plans from:", planSourceUrl);
 
-    fetch(planSourceUrl)
+    fetch(planSourceUrl, { cache: 'no-store' })
       .then(function (res) {
         console.log("[DEBUG] Fetch response status:", res.status, res.ok);
-        return res.ok ? res.json() : { categories: [] };
+        if (!res.ok) {
+          console.error("[DEBUG] Response not OK, status:", res.status);
+          throw new Error('HTTP ' + res.status);
+        }
+        return res.json();
       })
       .then(function (data) {
         console.log("[DEBUG] Plans data loaded successfully", data);
