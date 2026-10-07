@@ -1423,4 +1423,33 @@
       });
     }
   }
+
+  /* ------------------------------------------------------------------ */
+  /* Schedule Filter (ライブクラススケジュール)                          */
+  /* ------------------------------------------------------------------ */
+  var filterBtns = document.querySelectorAll(".schedule-filter-btn");
+  var scheduleCards = document.querySelectorAll(".schedule-card");
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var selectedDay = this.getAttribute("data-day");
+
+      // Update active button
+      filterBtns.forEach(function (b) {
+        b.classList.remove("active");
+        b.style.background = "white";
+        b.style.color = "#3d6b47";
+      });
+      this.classList.add("active");
+      this.style.background = "#3d6b47";
+      this.style.color = "white";
+
+      // Filter cards
+      scheduleCards.forEach(function (card) {
+        var cardDay = card.getAttribute("data-day");
+        var shouldShow = selectedDay === "all" || cardDay === selectedDay;
+        card.style.display = shouldShow ? "" : "none";
+      });
+    });
+  });
 })();
