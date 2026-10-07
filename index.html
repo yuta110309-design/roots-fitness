@@ -558,6 +558,10 @@
       <button type="button" class="plan-tab is-active" role="tab" aria-selected="true" data-plan-tab="daikanyama">代官山</button>
       <button type="button" class="plan-tab" role="tab" aria-selected="false" data-plan-tab="karuizawa">軽井沢</button>
       <button type="button" class="plan-tab" role="tab" aria-selected="false" data-plan-tab="online">オンライン</button>
+      <button type="button" class="plan-tab" role="tab" aria-selected="false" data-plan-tab="corporate" style="position: relative;">
+        法人様用
+        <span style="display: inline-block; background: #ff6b6b; color: white; font-size: 0.7rem; padding: 3px 8px; border-radius: 12px; margin-left: 8px; font-weight: 700;">NEW</span>
+      </button>
     </div>
 
     <div class="plan-panels" data-plans-source="data/plans.json">
@@ -569,6 +573,22 @@
       </div>
       <div class="plan-panel" data-plan-panel="online" hidden>
         <p class="plan-loading">読み込み中…</p>
+      </div>
+      <div class="plan-panel" data-plan-panel="corporate" hidden>
+        <div style="background: linear-gradient(135deg, rgba(61, 107, 71, 0.05) 0%, rgba(45, 80, 55, 0.05) 100%); padding: 60px 20px; border-radius: 12px; text-align: center;">
+          <h3 style="color: #2E3D28; font-size: 1.8rem; margin-bottom: 20px; font-weight: 700;">法人向けプラン</h3>
+          <p style="color: #666; font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+            企業研修、従業員の健康増進、チームビルディングなど、<br>
+            カスタマイズされたプランをご提供いたします。
+          </p>
+          <button onclick="openReservationModal()" class="btn btn-primary" style="padding: 16px 48px; font-size: 1rem;">
+            お問い合わせ
+          </button>
+          <p style="color: #999; font-size: 0.9rem; margin-top: 30px;">
+            ご希望に応じて、専用の提案資料をお送りいたします。<br>
+            お気軽にお問い合わせください。
+          </p>
+        </div>
       </div>
     </div>
 
