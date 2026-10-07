@@ -1452,4 +1452,44 @@
       });
     });
   });
+
+  /* ------------------------------------------------------------------ */
+  /* Reviews Carousel (メンバーの声)                                    */
+  /* ------------------------------------------------------------------ */
+  window.scrollToReview = function (index) {
+    var carousel = document.getElementById("reviewsCarousel");
+    if (!carousel) return;
+
+    var slides = carousel.querySelectorAll(".review-slide");
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+
+    // Update dots
+    var dots = document.querySelectorAll(".review-dot");
+    dots.forEach(function (dot, i) {
+      dot.style.background = i === index ? "#3d6b47" : "#ddd";
+      dot.classList.toggle("active", i === index);
+    });
+
+    // Scroll to slide
+    var slideWidth = slides[0].offsetWidth + 20; // gap included
+    carousel.scrollLeft = index * slideWidth;
+  };
+
+  // Auto-scroll reviews carousel on scroll
+  var reviewsCarousel = document.getElementById("reviewsCarousel");
+  if (reviewsCarousel) {
+    reviewsCarousel.addEventListener("scroll", function () {
+      var carousel = this;
+      var slides = carousel.querySelectorAll(".review-slide");
+      var slideWidth = slides[0].offsetWidth + 20;
+      var currentIndex = Math.round(carousel.scrollLeft / slideWidth);
+
+      var dots = document.querySelectorAll(".review-dot");
+      dots.forEach(function (dot, i) {
+        dot.style.background = i === currentIndex ? "#3d6b47" : "#ddd";
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    });
+  }
 })();
