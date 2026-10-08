@@ -1492,8 +1492,10 @@ a.news-card:hover {
   font-family: var(--font-heading);
   font-size: 1rem;
   letter-spacing: 0.04em;
-  color: var(--color-text);
+  color: #2E3D28;
   white-space: nowrap;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .plan-card-freq {
