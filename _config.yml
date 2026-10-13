@@ -1,0 +1,16 @@
+# GitHub Pages Configuration for Roots Fitness
+title: Roots Fitness
+description: Roots Fitness Official Website
+theme: jekyll-theme-minimal
+
+# Build settings
+markdown: kramdown
+exclude:
+  - .gitignore
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Enable GitHub Pages
+github:
+  is_project_page: false
