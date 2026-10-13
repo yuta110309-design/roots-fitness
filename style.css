@@ -1547,13 +1547,14 @@ a.news-card:hover {
   width: 100%;
   margin-top: 16px;
   padding: 10px;
-  background: transparent;
-  border: 1px solid rgba(46, 61, 40, 0.2);
+  background: rgba(61, 107, 71, 0.1);
+  border: 1px solid rgba(46, 61, 40, 0.3);
   border-radius: var(--radius);
   font-family: var(--font-body);
   font-size: 0.78rem;
   letter-spacing: 0.04em;
-  color: var(--color-deep-green);
+  color: #2E3D28;
+  font-weight: 600;
   -webkit-appearance: none;
   appearance: none;
   transition: background-color 0.25s var(--ease), color 0.25s var(--ease);
