@@ -3117,3 +3117,66 @@ a.news-card:hover {
 .plan-panel[hidden] {
   display: none !important;
 }
+
+/* Guest Trainer Section */
+.guest-trainers-subsection {
+  background: linear-gradient(135deg, rgba(61, 107, 71, 0.05) 0%, rgba(139, 110, 85, 0.03) 100%);
+  border: 2px solid rgba(61, 107, 71, 0.15);
+  padding: 32px 20px;
+  border-radius: 12px;
+  margin-top: 40px;
+}
+
+.guest-trainers-subtitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-moss);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.guest-trainer-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.guest-trainer-cards .trainer-card {
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+
+/* Mobile: Guest trainer card larger on mobile */
+@media (max-width: 768px) {
+  .guest-trainers-subsection {
+    padding: 24px 16px;
+  }
+
+  .guest-trainer-cards {
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .guest-trainer-cards .trainer-card {
+    flex: 0 1 100%;
+    max-width: 100%;
+  }
+}
+
+/* Desktop: Guest trainer card optimized for PC */
+@media (min-width: 769px) {
+  .guest-trainers-subsection {
+    padding: 40px 32px;
+  }
+
+  .guest-trainer-cards {
+    gap: 24px;
+  }
+
+  .guest-trainer-cards .trainer-card {
+    flex: 0 1 320px;
+    max-width: 400px;
+  }
+}
