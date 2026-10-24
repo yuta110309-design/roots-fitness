@@ -6,19 +6,6 @@
       "name": "パーソナル",
       "plans": [
         {
-          "id": "personal-trial",
-          "name": "新規体験",
-          "frequency": "1回",
-          "price": 9000,
-          "priceUnit": "回",
-          "unitPrice": null,
-          "note": "初回限定キャンペーン",
-          "recommendedFor": "初めてパーソナルトレーニングを試してみたい方に。",
-          "photoNote": "新規体験のセッション風景",
-          "photo": "images/plan-personal.jpg",
-          "stores": ["daikanyama"]
-        },
-        {
           "id": "personal-trial-karuizawa",
           "name": "新規体験",
           "frequency": "1回",
@@ -139,7 +126,7 @@
           "id": "personal-karuizawa-single",
           "name": "単発(都度)",
           "frequency": "1回",
-          "price": 11000,
+          "price": 9500,
           "priceUnit": "回",
           "unitPrice": null,
           "note": "会員以外・都度利用向け",
