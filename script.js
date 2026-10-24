@@ -809,7 +809,7 @@
       return html || '<p class="plan-loading">現在この店舗のプランは準備中です。</p>';
     }
 
-    var planSourceUrl = planPanelsRoot.getAttribute("data-plans-source");
+    var planSourceUrl = planPanelsRoot.getAttribute("data-plans-source") + "?v=3000";
     console.log("[DEBUG] Loading plans from:", planSourceUrl);
 
     fetch(planSourceUrl, { cache: 'no-store' })
