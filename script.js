@@ -984,7 +984,7 @@
       return html;
     }
 
-    fetch(trainerGroups.getAttribute("data-trainers-source"))
+    fetch(trainerGroups.getAttribute("data-trainers-source") + "?v=2000")
       .then(function (res) {
         return res.ok ? res.json() : { trainers: [] };
       })
