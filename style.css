@@ -3108,3 +3108,12 @@ a.news-card:hover {
     margin-top: 0 !important;
   }
 }
+
+/* Plan panel visibility control */
+.plan-panel {
+  display: block;
+}
+
+.plan-panel[hidden] {
+  display: none !important;
+}
